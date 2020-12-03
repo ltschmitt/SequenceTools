@@ -1,0 +1,36 @@
+Package: SequenceTools
+Title: A collection of functions to process and visualise DNA and AA sequences.
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Lukas Theo",
+           family = "Schmitt",
+           role = c("aut", "cre"),
+           email = "l90schmitt@gmail.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: A collection of functions to process and visualise DNA and AA sequences.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1.9000
+Imports:
+      stringdist,
+      reshape2,
+      Rtsne,
+      ggrepel,
+      cluster,
+      densityClust,
+      infotheo,
+      dendextend,
+      cowplot,
+      forcats,
+      stringr,
+      purrr,
+      tidyr,
+      readr,
+      readxl
+Depends:
+      ggplot2,
+      dplyr,
+      magrittr
