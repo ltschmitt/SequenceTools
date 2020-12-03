@@ -4,14 +4,21 @@
 \alias{alignment_heatmap}
 \title{Heatmap of aligned sequences}
 \usage{
-alignment_heatmap(files, nReads, AAthreshold = 0.9)
+alignment_heatmap(x, nReads, AAthreshold = 0.9)
+}
+\arguments{
+\item{x}{character vector of filenames or named character vector with sequences and labels as names}
+
+\item{nReads}{integer. number of reads to read in and}
+
+\item{AAthreshold}{numeric. AA fraction that indicates the maximum threshold per position to be included in the plot}
 }
 \description{
 A heatmap of aligned sequences
 }
 \examples{
-aa <- c('YNGTNQ', 'YGNMAKA')
-alignment_heatmap(dna)
+aa <- c(a = 'YNGTNQ', b = 'YGNMAK')
+alignment_heatmap(aa)
 }
 \keyword{AA,}
 \keyword{heatmap}

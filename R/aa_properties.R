@@ -1,6 +1,11 @@
 #' Lookup properties of amino acids
 #'
-#' This function takes the single letter annotation of amino acids and converts it into the property of choice. Properties available: 'SideChainClass', 'SideChainPolarity', 'SideChainCharge', 'HydropathyIndex', 'MolecularWeight', 'Occurance'.
+#' This function takes a single letter annotation of amino acids in vector form and converts it into the property of choice. Properties available: 'SideChainClass', 'SideChainPolarity', 'SideChainCharge', 'HydropathyIndex', 'MolecularWeight', 'Occurance'.
+#'
+#' @param AA character vector
+#' @param property character
+#'
+#' @return character or numeric
 #' @keywords AA, amino acid, properties
 #' @export
 #' @examples

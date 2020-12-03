@@ -1,6 +1,13 @@
+#' @include gg_color_hue.R
+NULL
+
 #' Switch the order of the colors
 #'
 #' This function takes a color function and reorders the colors that it outputs.
+#' @param n integer. number of colors to produce
+#' @param color_function function to use for generating colors
+#' @param ordering 'systematic' or 'random'. the method it switches the colors
+#' @return character vector with color values
 #' @keywords color, plotting
 #' @export
 #' @examples

@@ -6,12 +6,21 @@
 \usage{
 alignments2long(input, seqrange = NULL, get_frequencies = F)
 }
+\arguments{
+\item{input}{named character vector}
+
+\item{seqrange}{integer vector describing the positions in the sequences to use}
+
+\item{get_frequencies}{logical. calculat frequencies or not}
+}
+\value{
+tibble with colnames c('Sample','Pos','AA') or c('Sample','Pos','AA','Freq')
+}
 \description{
 This function takes a named vector of alignment sequences and converts it to a long data.frame with one letter per row. Columns indicate sequence ID and position in sequence. With get_frequencies the output can be condensed to frequency occurances of the letters per position.
 }
 \examples{
-alns <- read_alignments(c('alnA.fa','alnB.fa'), nReads = 100, naming = 'filenames')
-alignments2long(alns)
+alignments2long(c(a = 'AAACCCGT', b = 'AAAGGGCT', c = 'AGAGAGAG'))
 }
 \keyword{AA,}
 \keyword{DNA,}

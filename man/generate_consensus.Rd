@@ -6,11 +6,18 @@
 \usage{
 generate_consensus(input, outformat = "stringvector", nReads = 1000)
 }
+\arguments{
+\item{input}{file, character vector or alignments2long output}
+
+\item{outformat}{'stringvector' or 'long'}
+
+\item{nReads}{integer}
+}
 \description{
 This function takes either Filepaths, named vector alignments, or a data.frame from alignments2long. The output is the consensus sequences in either 'long' or 'stringvector' format.
 }
 \examples{
-generate_consensus(input = c('alnA.fa','alnB.fa'), nReads = 100, outformat = 'stringvector')
+generate_consensus(input = c(a = 'AAACAAA', a = 'AAACAAA', a = 'AAAAAAA'))
 }
 \keyword{AA,}
 \keyword{DNA,}

@@ -6,11 +6,18 @@
 \usage{
 read_alignments(input, nReads = -1L, naming = "headers")
 }
+\arguments{
+\item{input}{filename of fasta without linebreaks in sequence}
+
+\item{nReads}{integer value of number of reads to read in}
+
+\item{naming}{'headers' or 'filenames'. Defines where the names come from.}
+}
+\value{
+named character vector
+}
 \description{
 This function reads in alignments from fasta files. The sequences need to be aligned, therefore need all have the same length. The function is capable of reading several files, but the contents need to match in string length. The output is a named vector.
-}
-\examples{
-read_alignments(c('alnA.fa','alnB.fa'), nReads = 100, naming = 'filenames')
 }
 \keyword{AA,}
 \keyword{DNA,}

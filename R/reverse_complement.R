@@ -1,6 +1,10 @@
 #' Make the reverse complement of strings of DNA
 #'
 #' This function takes a vector of strings with the letters A C G T and converts them to the opposing letter, T G C A. Letters - and N are also accepted but will stay the same. Other letters are not accepted.
+#' @param x character vector containing sequences with ACGTN-
+#' @param reverse logical
+#' @param collapsed logical. collapse sequence into string or output as seperate letters
+#' @return character vector
 #' @keywords DNA, reverse, complement
 #' @export
 #' @examples

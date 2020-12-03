@@ -1,5 +1,5 @@
 Package: SequenceTools
-Title: A collection of functions to process and visualise DNA and AA sequences.
+Title: A collection of functions to process and visualise DNA and AA sequences
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Lukas Theo",
@@ -8,8 +8,7 @@ Authors@R:
            email = "l90schmitt@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: A collection of functions to process and visualise DNA and AA sequences.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -28,9 +27,23 @@ Imports:
       stringr,
       purrr,
       tidyr,
+      tibble,
       readr,
-      readxl
-Depends:
+      readxl,
+      magrittr,
       ggplot2,
-      dplyr,
-      magrittr
+      dplyr
+Collate: 
+    'aa_properties.R'
+    'utilities.R'
+    'read_alignments.R'
+    'alignment_heatmap.R'
+    'alignment_tsne.R'
+    'alignments2long.R'
+    'gg_color_hue.R'
+    'color_switcher.R'
+    'generate_consensus.R'
+    'reverse_complement.R'
+    'hamming_heatmap.R'
+    'utils-pipe.R'
+    'write_fasta.R'

@@ -6,11 +6,15 @@
 \usage{
 write_fasta(Sequences, Headers, File)
 }
+\arguments{
+\item{Sequences}{character vector containg the sequences to write into the file}
+
+\item{Headers}{character vector containg the header names to write into the file, same order as sequences}
+
+\item{File}{Filename to write to}
+}
 \description{
 This function takes a vector of strings, the names for the Headers and the filename to write a fasta file
-}
-\examples{
-write_fasta(Sequences = c('ACAAACCAGG','AAACCAGA'), Headers = c('Seq1','Seq2'), File = 'sequences.fasta')
 }
 \keyword{fasta,}
 \keyword{sequences,}

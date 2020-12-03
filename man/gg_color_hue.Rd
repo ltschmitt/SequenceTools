@@ -6,7 +6,13 @@
 \usage{
 gg_color_hue(n)
 }
+\arguments{
+\item{n}{integer. number of colors}
+}
+\value{
+character vector of color values
+}
 \description{
-Provide the number of colors you want. The output will be a string of color values
+ggplot color function
 }
 \keyword{color}

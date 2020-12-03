@@ -12,6 +12,17 @@ alignment_tsne(
   num_threads = 12
 )
 }
+\arguments{
+\item{alignment}{character vector with same length sequences to aligne}
+
+\item{labeling}{character vector with labels, same order as alignment}
+
+\item{distance_metric}{see stringdist::stringdist method parameter}
+
+\item{perplexity}{see Rtsne::Rtsne perplexity parameter}
+
+\item{num_threads}{see Rtsne::Rtsne num_threads parameter}
+}
 \description{
 This is a wrapper that uses a vector of same length strings to calculate a distance matrix which is used to calculate a dimensionality reduction via tSNE. This is then plotted with ggplot
 }

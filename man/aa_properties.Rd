@@ -6,8 +6,16 @@
 \usage{
 aa_properties(AA, property)
 }
+\arguments{
+\item{AA}{character vector}
+
+\item{property}{character}
+}
+\value{
+character or numeric
+}
 \description{
-This function takes the single letter annotation of amino acids and converts it into the property of choice. Properties available: 'SideChainClass', 'SideChainPolarity', 'SideChainCharge', 'HydropathyIndex', 'MolecularWeight', 'Occurance'.
+This function takes a single letter annotation of amino acids in vector form and converts it into the property of choice. Properties available: 'SideChainClass', 'SideChainPolarity', 'SideChainCharge', 'HydropathyIndex', 'MolecularWeight', 'Occurance'.
 }
 \examples{
 aa_properties(AA = c('A','A','R','Q','Y'), property = 'HydropathyIndex')
