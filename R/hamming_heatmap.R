@@ -8,6 +8,7 @@ NULL
 #' @param nReads integer. number of reads to read in and 
 #' @keywords hamming distances
 #' @export
+#' @examples
 #' aa <- c(a = 'YNGTNQ', b = 'YGNMAK')
 #' hamming_heatmap(aa)
 

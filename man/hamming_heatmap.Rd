@@ -14,5 +14,9 @@ hamming_heatmap(x, nReads)
 \description{
 This function makes a heatmap of hamming distances
 }
+\examples{
+aa <- c(a = 'YNGTNQ', b = 'YGNMAK')
+hamming_heatmap(aa)
+}
 \keyword{distances}
 \keyword{hamming}

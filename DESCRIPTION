@@ -45,5 +45,7 @@ Collate:
     'generate_consensus.R'
     'reverse_complement.R'
     'hamming_heatmap.R'
+    'library_distances.R'
+    'plot_alignment.R'
     'utils-pipe.R'
     'write_fasta.R'
