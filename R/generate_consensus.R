@@ -6,7 +6,6 @@ NULL
 #' @description This function takes either Filepaths, named vector alignments, or a data.frame from alignments2long. The output is the consensus sequences in either 'long' or 'stringvector' format.
 #' @param input file, character vector or alignments2long output
 #' @param outformat 'stringvector' or 'long'
-#' @param nReads integer
 #' @keywords DNA, AA, alignment, consensus
 #' @export
 #' @examples

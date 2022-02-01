@@ -13,6 +13,6 @@ gg_color_hue(n)
 character vector of color values
 }
 \description{
-ggplot color function
+ggplot color function, from https://stackoverflow.com/questions/8197559/emulate-ggplot2-default-color-palette
 }
 \keyword{color}

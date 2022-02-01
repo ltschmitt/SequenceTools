@@ -17,7 +17,7 @@ reverse_complement(x, reverse = T, collapsed = T)
 character vector
 }
 \description{
-This function takes a vector of strings with the letters A C G T and converts them to the opposing letter, T G C A. Letters - and N are also accepted but will stay the same. Other letters are not accepted.
+This function takes a vector of strings with supported IUPAC code letters and converts them to the complement. Letters - and N are also accepted but will stay the same. Other letters will be ignored.
 }
 \examples{
 dna <- c('ACGT', 'CGCGAAA')

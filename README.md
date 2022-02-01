@@ -12,7 +12,7 @@ install.packages("devtools")
 devtools::install_github("ltschmitt/SequenceTools")
 ```
 
-## Usage
+## Usage Example
 
 You can read in fasta files of DNA or amino acid single letter using
 *read_alignments*. The output is a named character vector, which makes
@@ -21,18 +21,21 @@ file, generate a consensus sequence and to plot the alignment of all the
 reads.
 
 ``` r
-library(SequenceTools, verbose = F)
-library(tidyverse)
+library(SequenceTools)
+library(tidyverse, verbose = F)
 
 # read in single line fasta
 seqs = read_alignments(input = 'data_raw/cre-variants.fa', naming = 'headers')
 #> reading 1 sequence file(s)...
 
-# make consensus sequence, sequences need to be same length and the consensus is made with the sequences of the same name
+# make consensus sequence 
+# sequences need to be same length
+# consensus is made with the sequences of the same name
 consens = generate_consensus(setNames(seqs, rep('consens',length(seqs))))
 
 # plot alignment with consens as reference, makes ggplot element
-plot_alignment(Alignment = seqs, Reference = consens, seqrange = 100:200) + theme(legend.position = 'none')
+plot_alignment(Alignment = seqs, Reference = consens, seqrange = 100:200) +
+    theme(legend.position = 'none')
 ```
 
 ![](man/figures/README-unnamed-chunk-2-1.png)<!-- -->
@@ -58,7 +61,7 @@ lseqs %>%
     ggplot(aes(x = Pos, y = Freq, fill = AA, label = AA)) + 
     geom_col() + 
     geom_text(position = 'stack', vjust = 1.2) +
-    scale_fill_viridis_d('E') +
+    scale_fill_viridis_d() +
     theme(legend.position = 'none')
 ```
 
@@ -104,5 +107,5 @@ This package was developed to suite my preferences, your might want
 something different. Here are some other R packages I found to be useful
 with similar functions:
 
-[bioseq](https://github.com/fkeck/bioseq)
-[ggmsa](https://github.com/YuLab-SMU/ggmsa)
+-   [bioseq](https://github.com/fkeck/bioseq)
+-   [ggmsa](https://github.com/YuLab-SMU/ggmsa)

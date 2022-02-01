@@ -4,14 +4,21 @@
 \alias{read_alignments}
 \title{Read in sequence alignments}
 \usage{
-read_alignments(input, nReads = -1L, naming = "headers")
+read_alignments(
+  input,
+  nReads = -1L,
+  naming = "headers",
+  fileformat = "singleline"
+)
 }
 \arguments{
 \item{input}{filename of fasta without linebreaks in sequence}
 
 \item{nReads}{integer value of number of reads to read in}
 
-\item{naming}{'headers' or 'filenames'. Defines where the names come from.}
+\item{naming}{'headers', 'filenames' or 'filenames-header'. Defines where the names come from.}
+
+\item{fileformat}{'singleline', 'multiline'. Defines if the fasta file has the sequence entries in single lines or in multiple lines. singleline is faster but will give an error when dealing with multiline fastas.}
 }
 \value{
 named character vector

@@ -4,14 +4,12 @@
 \alias{generate_consensus}
 \title{Generate consensus from alignments}
 \usage{
-generate_consensus(input, outformat = "stringvector", nReads = 1000)
+generate_consensus(input, outformat = "stringvector")
 }
 \arguments{
 \item{input}{file, character vector or alignments2long output}
 
 \item{outformat}{'stringvector' or 'long'}
-
-\item{nReads}{integer}
 }
 \description{
 This function takes either Filepaths, named vector alignments, or a data.frame from alignments2long. The output is the consensus sequences in either 'long' or 'stringvector' format.

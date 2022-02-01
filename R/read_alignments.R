@@ -4,6 +4,7 @@
 #' @param input filename of fasta without linebreaks in sequence
 #' @param nReads integer value of number of reads to read in
 #' @param naming 'headers', 'filenames' or 'filenames-header'. Defines where the names come from.
+#' @param fileformat 'singleline', 'multiline'. Defines if the fasta file has the sequence entries in single lines or in multiple lines. singleline is faster but will give an error when dealing with multiline fastas.
 #' @return named character vector
 #' @keywords DNA, AA, alignment, read
 #' @export

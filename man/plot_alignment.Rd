@@ -10,7 +10,7 @@ plot_alignment(
   RemoveConserved = T,
   SequenceWrap = NULL,
   Coloring = "AA",
-  SeqRange = NULL,
+  seqrange = NULL,
   fontscale = 1,
   order_by_distance = T
 )
@@ -26,7 +26,7 @@ plot_alignment(
 
 \item{Coloring}{'AA', 'DNA', 'SideChainClass', 'SideChainPolarity', 'SideChainCharge', 'HydropathyIndex', 'MolecularWeight', or 'Occurance'. Defines how the letters are colored.}
 
-\item{SeqRange}{integers, start and stop position of sequences to use for alignments.}
+\item{seqrange}{integer vector with all the Positions to display in the plot}
 
 \item{fontscale}{numeric value indicating the size of the letters}
 
