@@ -12,19 +12,16 @@ NULL
 #' @examples
 #' generate_consensus(input = c(a = 'AAACAAA', a = 'AAACAAA', a = 'AAAAAAA'))
 
-generate_consensus = function(input, outformat = 'stringvector', nReads = 1000){
+generate_consensus = function(input, outformat = 'stringvector'){
       stopifnot(outformat %in% c('long','stringvector'))
 
       if(all(file.exists(input))){
-	    input = read_alignments(input, nReads, naming = 'filenames')
+	    input = read_alignments(input, naming = 'filenames')
       }
       if(is.character(input)){ 
-	    # here should be something that reduces the sequences of each Sample to 1000
 	    input = alignments2long(input)
       }
       stopifnot(is.list(input) & all(c('Sample','Pos','AA') %in% colnames(input)))
-
-      # here should be something that reduces the sequences of each Sample to 1000
 
       consens = input %>% dplyr::group_by(Sample,Pos, AA) %>% dplyr::count() %>% dplyr::group_by(Sample,Pos) %>% dplyr::filter(n == max(n)) %>% dplyr::select(-n) %>% dplyr::mutate(nPos = dplyr::n()) 
 

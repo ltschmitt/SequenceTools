@@ -4,10 +4,12 @@
 \alias{alignments2long}
 \title{Convert alignment vector to long table}
 \usage{
-alignments2long(input, seqrange = NULL, get_frequencies = F)
+alignments2long(x, x_names = NULL, seqrange = NULL, get_frequencies = F)
 }
 \arguments{
-\item{input}{named character vector}
+\item{x}{named character vector or unnamed character vector if using x_names}
+
+\item{x_names}{character vector with names for x}
 
 \item{seqrange}{integer vector describing the positions in the sequences to use}
 

@@ -1,6 +1,6 @@
 Package: SequenceTools
 Title: A collection of functions to process and visualise DNA and AA sequences
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "Lukas Theo",
            family = "Schmitt",
@@ -40,12 +40,14 @@ Collate:
     'alignment_heatmap.R'
     'alignment_tsne.R'
     'alignments2long.R'
+    'between_lib_distances.R'
     'gg_color_hue.R'
     'color_switcher.R'
     'generate_consensus.R'
     'reverse_complement.R'
     'hamming_heatmap.R'
-    'library_distances.R'
     'plot_alignment.R'
+    'plot_frequencies.R'
     'utils-pipe.R'
+    'within_lib_distances.R'
     'write_fasta.R'

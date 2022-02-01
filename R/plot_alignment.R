@@ -9,7 +9,7 @@ NULL
 #' @param RemoveConserved logical. removes positions that are all the same in the alignment
 #' @param SequenceWrap integer value of positions to show per line
 #' @param Coloring 'AA', 'DNA', 'SideChainClass', 'SideChainPolarity', 'SideChainCharge', 'HydropathyIndex', 'MolecularWeight', or 'Occurance'. Defines how the letters are colored.
-#' @param SeqRange integers, start and stop position of sequences to use for alignments.
+#' @param seqrange integer vector with all the Positions to display in the plot
 #' @param fontscale numeric value indicating the size of the letters
 #' @param order_by_distance logical, sort sequences by hamming distance
 #' @return ggplot
@@ -20,7 +20,7 @@ NULL
 #' names(aln) <- c('seq1','seq2','seq3')
 #' plot_alignment(aln)
 
-plot_alignment = function(Alignment, Reference = NULL, RemoveConserved = T, SequenceWrap = NULL, Coloring = 'AA', SeqRange = NULL, fontscale = 1, order_by_distance = T ) {
+plot_alignment = function(Alignment, Reference = NULL, RemoveConserved = T, SequenceWrap = NULL, Coloring = 'AA', seqrange = NULL, fontscale = 1, order_by_distance = T ) {
 
       #Colorscheme
       AAcolorscheme = c(
@@ -31,17 +31,17 @@ plot_alignment = function(Alignment, Reference = NULL, RemoveConserved = T, Sequ
 	    'N' = 'magenta3', 'Q' = 'magenta3', 'H' = 'magenta3',
 	    'D' = 'firebrick', 'E' = 'firebrick',
 	    'K' = 'dodgerblue3', 'R' = 'dodgerblue3',
-	    'B' = 'grey35', 'Z' = 'grey35', 'X' = 'grey35', '-' = 'grey35', '*' = 'grey35')
+	    'B' = 'grey35', 'Z' = 'grey35', 'X' = 'grey35', '-' = 'red', '*' = 'grey35', '.' = 'grey35')
       DNAcolorscheme = c(
 	    'A' = 'darkorange',
 	    'C' = 'chartreuse3',
 	    'G' = 'firebrick',
 	    'T' = 'dodgerblue3',
-	    'N' = 'grey35', '-' = 'grey35', '*' = 'grey35')
+	    'N' = 'grey35', '-' = 'red', '.' = 'grey35')
 
 #      if(all(file.exists(Alignment))) Alignment = ReadAlnFiles(Alignment)
       if(is.character(Alignment)) stopifnot(length(unique(names(Alignment))) == length(Alignment))
-      if(is.character(Alignment) & length(Alignment > 1)) Alignment = alignments2long(Alignment, SeqRange)
+      if(is.character(Alignment) & length(Alignment > 1)) Alignment = alignments2long(Alignment)
       stopifnot(is.list(Alignment) & all(c('Sample','Pos','AA') %in% colnames(Alignment)))
       if(length(unique(Alignment$Sample)) > 100) warning('Plotting of over 100 Sequences is not advised') 
       stopifnot(length(unique(Alignment$Sample)) < 200) 
@@ -61,13 +61,14 @@ plot_alignment = function(Alignment, Reference = NULL, RemoveConserved = T, Sequ
       # assert that reference is one sequence and reference is at least as long as the aligned sequences
       stopifnot(length(Reference) == 1)
       Reference = unlist(strsplit(Reference,'', fixed = T))
-      stopifnot(length(Reference) >= max(as.integer((Alignment$Pos))))
+      stopifnot(length(Reference) >= length(unique((Alignment$Pos))))
 
       # prepare df for plotting: match to reference according to Pos and replace with dot
       Alignment = Alignment %>% dplyr::ungroup() %>% dplyr::mutate(isref = Sample == Refname, targetAA = Reference[Pos], targetfit = AA == targetAA) 
       if(RemoveConserved & !all(Alignment$targetfit)) Alignment = Alignment %>% dplyr::group_by(Pos) %>% dplyr::filter(!all(targetfit)) %>% dplyr::ungroup()
+      if(!is.null(seqrange)) Alignment = Alignment %>% dplyr::filter(Pos %in% seqrange)
 
-      Alignment = Alignment %>% dplyr::mutate(label = ifelse(isref, as.character(AA), ifelse(targetfit,'*',as.character(AA)))) %>% dplyr::group_by(Sample) %>% dplyr::mutate(distance = sum(!targetfit)) %>% dplyr::ungroup()
+      Alignment = Alignment %>% dplyr::mutate(label = ifelse(isref, as.character(AA), ifelse(targetfit,'.',as.character(AA)))) %>% dplyr::group_by(Sample) %>% dplyr::mutate(distance = sum(!targetfit)) %>% dplyr::ungroup()
       if(order_by_distance) {Alignment = Alignment %>% dplyr::arrange(isref,-distance) %>% dplyr::mutate(Sample = forcats::fct_inorder(Sample))
       } else Alignment = Alignment %>% dplyr::arrange(isref,dplyr::desc(Sample)) %>% dplyr::mutate(Sample = forcats::fct_inorder(Sample))
       
